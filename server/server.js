@@ -12,7 +12,7 @@ const employee = [{
   position: 'CEO'
 }];
 
-app.use(express.static('app'));
+app.use(express.static('client'));
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
