@@ -6,8 +6,19 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
+const employee = [{
+  first_name: 'John',
+  last_name: 'Doe',
+  position: 'CEO'
+}];
+
 app.use(express.static('app'));
 
-app.use(bodyParser());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
+app.get('/', (req, res) => {
+  res.json(employee);
+});
 
 app.listen(3000, () => console.log('listenning port 3000'));
