@@ -17,7 +17,7 @@ app.use(express.static('app'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
+app.get('/data', (req, res) => {
   res.json(employee);
 });
 
