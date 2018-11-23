@@ -43,6 +43,11 @@
       <ul class="lion-list"></ul>
     </div>
   </main>
-<script src="app.js"></script>
+  <script id="lion_list_template" type="text/x-lodash-template">
+    <ul>
+      <% _.forEach(lions, function(lion) { %><li><%- lion.name %></li><% }); %>
+    </ul>
+  </script>
+<script src="bundle.js"></script>
 </body>
 </html>
