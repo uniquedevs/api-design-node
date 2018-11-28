@@ -2,22 +2,14 @@
 // that will send back the index.html file on a GET request to '/'
 // it should then send back jsonData on a GET to /data
 const express = require('express');
-const bodyParser = require('body-parser');
-const multer = require('multer');
-
-const lionRouter = require('./lions');
-
+const applyMiddleware = require('./middleware/appMiddleware');
+const api = require('./api/api');
 
 const app = express();
-const upload = multer();
 
-app.use(express.static('client'));
+applyMiddleware(app);
 
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
-app.use(upload.array());
-
-app.use('/lions', lionRouter);
+app.use('/api/', api);
 
 app.use(function(err, req, res, next) {
   if (err) {

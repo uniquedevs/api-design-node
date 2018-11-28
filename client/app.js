@@ -7,7 +7,7 @@ import _ from 'lodash';
         form.addEventListener('submit', e => {
             e.preventDefault();
             const formData = new FormData(form);
-            window.fetch('/lions', {
+            window.fetch('/api/lions', {
                 method: 'post',
                 body: formData,
             })
@@ -24,7 +24,7 @@ import _ from 'lodash';
         lionsContainer.innerHTML = compiledLeonList({ lions });
     }
     function fetchAndPopulate() {
-        window.fetch('/lions')
+        window.fetch('/api/lions')
           .then( res => res.json())
           .then(populateLions);
     }

@@ -1,5 +1,6 @@
 const path = require('path');
-const config = requre('./config');
+const config = require('./server/config/config');
+
 
 module.exports = {
   entry: './client/app.js',
