@@ -4,6 +4,7 @@ import _ from 'lodash';
     window.onload = () => {
         const form = document.forms.lions;
         fetchAndPopulate();
+        fetchDocumentsFromDB();
         form.addEventListener('submit', e => {
             e.preventDefault();
             const formData = new FormData(form);
@@ -27,5 +28,10 @@ import _ from 'lodash';
         window.fetch('/api/lions')
           .then( res => res.json())
           .then(populateLions);
+    }
+    function fetchDocumentsFromDB() {
+        window.fetch('/api/documents')
+          .then(res => res.json())
+          .then(console.log)
     }
 })();

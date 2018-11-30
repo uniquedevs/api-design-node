@@ -1,9 +1,9 @@
 const _ = require('lodash');
-const userRouter = require('express').Router();
+const router = require('express').Router();
 
-userRouter.route('/')
+router.route('/')
   .get((req, res) => {
     res.send({ ok: true })
 });
 
-module.exports = userRouter;
+module.exports = router;

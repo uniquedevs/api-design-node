@@ -2,6 +2,7 @@
 // that will send back the index.html file on a GET request to '/'
 // it should then send back jsonData on a GET to /data
 const express = require('express');
+const mongoose = require('mongoose');
 const applyMiddleware = require('./middleware/appMiddleware');
 const api = require('./api/api');
 
@@ -16,5 +17,7 @@ app.use(function(err, req, res, next) {
     res.status(500).send(err);
   }
 });
+
+mongoose.connect('mongodb://localhost/docsapp');
 
 module.exports = app;
